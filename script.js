@@ -9,6 +9,9 @@ const finalScoreText = document.getElementById('finalScore');
 const restartButton = document.getElementById('restartButton');
 const jumpInfoMessage = document.getElementById('jumpInfoMessage');
 
+// Adjust game speed dynamically based on screen size
+const isMobile = window.matchMedia('(max-width: 767px)').matches;
+
 // Game state values
 let isGameRunning = false;
 let isGameOver = false;
@@ -103,6 +106,11 @@ function startGame() {
 	game.classList.add('running');
 	startOverlay.classList.remove('show');
 	gameOverOverlay.classList.remove('show');
+
+  if (isMobile) {
+    gameSpeed = 3.5; // Slower speed for mobile users
+    nextSpawnTime = randomInRange(100, 200); // Longer spawn intervals on mobile
+  }
 }
 
 function updateHud() {
@@ -395,9 +403,3 @@ restartButton.addEventListener('click', () => {
 // Initial setup
 resetGame();
 requestAnimationFrame(gameLoop);
-
-// Adjust game speed dynamically based on screen size
-const isMobile = window.matchMedia('(max-width: 767px)').matches;
-if (isMobile) {
-  gameSpeed = 3.5; // Slower speed for mobile users
-}
