@@ -3,11 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Game</title>
+    <title>charity: water Game Prototype</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the Charity Water Game Prototype</h1>
+    <main class="page">
+        <div class="header">
+            <img src="img/cw_logo_horizontal.png" alt="charity: water" class="logo" aria-hidden="true">
+            <h1>Jerry Can Runner</h1>
+        </div>
+
+        <section id="game" class="game" aria-label="Jerry Can Runner gameplay area">
+            <div class="hud">
+                <div id="hearts" class="hearts" aria-live="polite">❤️❤️❤️</div>
+                <div id="score" class="score" aria-live="polite">Score: 0</div>
+            </div>
+
+            <div id="startOverlay" class="overlay show">
+                <h2>START</h2>
+                <p>Press SPACE or TAP to Jump</p>
+            </div>
+
+            <div id="gameOverOverlay" class="overlay" hidden>
+                <h2>Game Over</h2>
+                <p id="finalScore">Final Score: 0</p>
+                <button id="restartButton" type="button">Restart</button>
+            </div>
+            <div id="jumpInfoMessage" class="info-message">Hold longer for a higher jump!</div>
+            <div class="track"></div>
+            <div id="runner" class="runner" aria-label="runner" role="img">🏃</div>
+        </section>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
